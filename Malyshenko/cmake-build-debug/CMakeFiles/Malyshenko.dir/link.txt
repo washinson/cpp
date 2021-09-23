@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/Malyshenko.dir/main.cpp.o -o Malyshenko 
