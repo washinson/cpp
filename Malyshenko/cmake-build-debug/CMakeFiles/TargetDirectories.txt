@@ -1,3 +1,0 @@
-/home/sanya112001/CLionProjects/Malyshenko/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/sanya112001/CLionProjects/Malyshenko/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/sanya112001/CLionProjects/Malyshenko/cmake-build-debug/CMakeFiles/Malyshenko.dir
