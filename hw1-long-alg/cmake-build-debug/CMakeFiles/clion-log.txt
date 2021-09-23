@@ -1,0 +1,4 @@
+/home/sanya112001/Programs/clion-2021.2.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/sanya112001/CLionProjects/cpp/hw1-long-alg
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/sanya112001/CLionProjects/cpp/hw1-long-alg/cmake-build-debug

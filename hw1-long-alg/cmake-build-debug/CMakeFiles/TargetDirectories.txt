@@ -1,0 +1,3 @@
+/home/sanya112001/CLionProjects/cpp/hw1-long-alg/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/sanya112001/CLionProjects/cpp/hw1-long-alg/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/sanya112001/CLionProjects/cpp/hw1-long-alg/cmake-build-debug/CMakeFiles/Malyshenko.dir
