@@ -3,3 +3,6 @@
 
 CMakeFiles/Malyshenko.dir/main.cpp.o
  /home/sanya112001/CLionProjects/cpp/hw1-long-alg/main.cpp
+CMakeFiles/Malyshenko.dir/tests/test1.cpp.o
+ /home/sanya112001/CLionProjects/cpp/gtest/googletest/include/gtest/gtest.h
+ /home/sanya112001/CLionProjects/cpp/hw1-long-alg/tests/test1.cpp

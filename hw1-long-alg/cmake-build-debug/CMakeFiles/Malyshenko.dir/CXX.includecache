@@ -6,7 +6,43 @@
 
 #IncludeRegexTransform: 
 
-/home/sanya112001/CLionProjects/cpp/hw1-long-alg/main.cpp
-iostream
+/home/sanya112001/CLionProjects/cpp/gtest/googletest/include/gtest/gtest.h
+cstddef
 -
+limits
+-
+memory
+-
+ostream
+-
+type_traits
+-
+vector
+-
+gtest/internal/gtest-internal.h
+/home/sanya112001/CLionProjects/cpp/gtest/googletest/include/gtest/gtest/internal/gtest-internal.h
+gtest/internal/gtest-string.h
+/home/sanya112001/CLionProjects/cpp/gtest/googletest/include/gtest/gtest/internal/gtest-string.h
+gtest/gtest-death-test.h
+/home/sanya112001/CLionProjects/cpp/gtest/googletest/include/gtest/gtest/gtest-death-test.h
+gtest/gtest-matchers.h
+/home/sanya112001/CLionProjects/cpp/gtest/googletest/include/gtest/gtest/gtest-matchers.h
+gtest/gtest-message.h
+/home/sanya112001/CLionProjects/cpp/gtest/googletest/include/gtest/gtest/gtest-message.h
+gtest/gtest-param-test.h
+/home/sanya112001/CLionProjects/cpp/gtest/googletest/include/gtest/gtest/gtest-param-test.h
+gtest/gtest-printers.h
+/home/sanya112001/CLionProjects/cpp/gtest/googletest/include/gtest/gtest/gtest-printers.h
+gtest/gtest_prod.h
+/home/sanya112001/CLionProjects/cpp/gtest/googletest/include/gtest/gtest/gtest_prod.h
+gtest/gtest-test-part.h
+/home/sanya112001/CLionProjects/cpp/gtest/googletest/include/gtest/gtest/gtest-test-part.h
+gtest/gtest-typed-test.h
+/home/sanya112001/CLionProjects/cpp/gtest/googletest/include/gtest/gtest/gtest-typed-test.h
+gtest/gtest_pred_impl.h
+/home/sanya112001/CLionProjects/cpp/gtest/googletest/include/gtest/gtest/gtest_pred_impl.h
+
+/home/sanya112001/CLionProjects/cpp/hw1-long-alg/tests/test1.cpp
+../../gtest/googletest/include/gtest/gtest.h
+/home/sanya112001/CLionProjects/cpp/gtest/googletest/include/gtest/gtest.h
 

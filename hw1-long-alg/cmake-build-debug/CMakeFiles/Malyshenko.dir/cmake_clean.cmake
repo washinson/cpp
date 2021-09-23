@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Malyshenko.dir/main.cpp.o"
+  "CMakeFiles/Malyshenko.dir/tests/test1.cpp.o"
   "Malyshenko"
   "Malyshenko.pdb"
 )

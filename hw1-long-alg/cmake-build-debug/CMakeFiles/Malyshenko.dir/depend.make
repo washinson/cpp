@@ -3,3 +3,6 @@
 
 CMakeFiles/Malyshenko.dir/main.cpp.o: \
  ../main.cpp
+CMakeFiles/Malyshenko.dir/tests/test1.cpp.o: \
+ /home/sanya112001/CLionProjects/cpp/gtest/googletest/include/gtest/gtest.h \
+ ../tests/test1.cpp
