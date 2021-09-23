@@ -32,6 +32,18 @@ TEST(big_integer, check_sum_minus) {
     ASSERT_EQ(std::string(bigInteger1 + bigInteger2), "0");
 }
 
+TEST(big_integer, check_dif) {
+    big_integer bigInteger1("123456789123456789123456789123456789000123000");
+    big_integer bigInteger2("123456789123456789123456789123456789000123020");
+    ASSERT_EQ(std::string(bigInteger1 - bigInteger2), "-20");
+}
+
+TEST(big_integer, check_dif_minus) {
+    big_integer bigInteger1("123456789123456789123456789123456789000123000");
+    big_integer bigInteger2("-123456789123456789123456789123456789000123020");
+    ASSERT_EQ(std::string(bigInteger1 - bigInteger2), "246913578246913578246913578246913578000246020");
+}
+
 TEST(big_integer, check_less) {
     big_integer bigInteger1("2");
     big_integer bigInteger2("3");
