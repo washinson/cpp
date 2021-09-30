@@ -73,3 +73,39 @@ TEST(big_integer, check_eq) {
     big_integer bigInteger2("3");
     ASSERT_EQ(bigInteger1, bigInteger2);
 }
+
+TEST(big_integer, multiply_test) {
+    big_integer a("3");
+    big_integer b(5);
+
+    EXPECT_EQ(a * b, big_integer(15));
+
+    big_integer c("3333333333333333333");
+    big_integer d("5555555555555555");
+
+    EXPECT_EQ(c * d, big_integer("18518518518518516664814814814814815"));
+}
+
+TEST(big_integer, div_test) {
+    big_integer a("3");
+    big_integer b(5);
+
+    EXPECT_EQ(std::string(a / b), "0");
+
+    big_integer c("3333333333333333333");
+    big_integer d("5555555555555555");
+
+    EXPECT_EQ(std::string(c / d), "600");
+}
+
+TEST(big_integer, mod_test) {
+    big_integer a("3");
+    big_integer b(5);
+
+    EXPECT_EQ(std::string(a % b), "3");
+
+    big_integer c("3333333333333333333");
+    big_integer d("5555555555555555");
+
+    EXPECT_EQ(std::string(c % d), "333");
+}
