@@ -38,21 +38,30 @@ void big_integer::_clear_useless_zeros() {
     }
 }
 
+std::ostream &operator<<(std::ostream &os, const big_integer &num) {
+    if (num._nums.empty()) {
+        os << 0;
+    } else {
+        if (num._negative) {
+            os << '-';
+        }
+        os << num._nums.back();
+        // следующие числа нам нужно печатать группами по 9 цифр
+        // поэтому сохраним текущий символ-заполнитель, а потом восстановим его
+        char old_fill = os.fill('0');
+        for (int64_t i = (int64_t) (num._nums.size()) - 2; i >= 0; --i) {
+            os << std::setw(9) << num._nums[i];
+        }
+
+        os.fill(old_fill);
+    }
+
+    return os;
+}
+
 big_integer::operator std::string() const {
     std::stringstream ss;
-    if (_nums.empty()) {
-        ss << 0;
-    } else {
-        if (_negative) {
-            ss << '-';
-        }
-        ss << _nums.back();
-        char old_fill = ss.fill('0');
-        for (int64_t i = (int64_t) _nums.size() - 2; i >= 0; --i) {
-            ss << std::setw(9) << _nums[i];
-        }
-        ss.fill(old_fill);
-    }
+    ss << *this;
     return ss.str();
 }
 
@@ -171,4 +180,104 @@ big_integer operator-(big_integer left, const big_integer &right) {
     }
     left._clear_useless_zeros();
     return left;
+}
+
+big_integer operator*(big_integer left, const big_integer &right) {
+    big_integer result(0L);
+    result._nums.resize(left._nums.size() + right._nums.size());
+    for (size_t i = 0; i < left._nums.size(); ++i) {
+        int carry = 0;
+        for (size_t j = 0; j < right._nums.size() || carry != 0; ++j) {
+            int64_t cur =
+                    result._nums[i + j] + left._nums[i] * 1LL * (j < right._nums.size() ? right._nums[j] : 0) + carry;
+            result._nums[i + j] = (int) (cur % big_integer::BASE);
+            carry = (int) (cur / big_integer::BASE);
+        }
+    }
+    result._negative = left._negative != right._negative;
+    result._clear_useless_zeros();
+    return result;
+}
+
+void big_integer::_move_right() {
+    if (_nums.empty()) {
+        _nums.push_back(0);
+        return;
+    }
+    _nums.push_back(_nums[_nums.size() - 1]);
+    for (size_t i = _nums.size() - 2; i > 0; --i) {
+        _nums[i] = _nums[i - 1];
+    }
+    _nums[0] = 0;
+}
+
+big_integer operator/(const big_integer &left, const big_integer &right) {
+    if (right == big_integer(0)) {
+        throw std::exception();
+    }
+    big_integer b = right;
+    b._negative = false;
+    big_integer result(0), current(0);
+    result._nums.resize(left._nums.size());
+    for (int64_t i = (int64_t) (left._nums.size()) - 1; i >= 0; --i) {
+        current._move_right();
+        current._nums[0] = left._nums[i];
+        current._clear_useless_zeros();
+        int x = 0, l = 0, r = big_integer::BASE;
+        while (l <= r) {
+            int m = (l + r) / 2;
+            big_integer t = b * m;
+            if (t <= current) {
+                x = m;
+                l = m + 1;
+            } else r = m - 1;
+        }
+
+        result._nums[i] = x;
+        current = current - b * x;
+    }
+
+    result._negative = left._negative != right._negative;
+    result._clear_useless_zeros();
+    return result;
+}
+
+big_integer operator%(big_integer left, const big_integer &right) {
+    big_integer result = left - (left / right) * right;
+    if (result._negative) {
+        result = result + right;
+    }
+    return result;
+}
+
+big_integer::big_integer(int l) {
+    if (l < 0) {
+        _negative = true;
+        l = -l;
+    } else {
+        _negative = false;
+    }
+    do {
+        _nums.push_back(l % big_integer::BASE);
+        l /= big_integer::BASE;
+    } while (l != 0);
+}
+
+big_integer::big_integer(int64_t l) {
+    if (l < 0) {
+        _negative = true;
+        l = -l;
+    } else _negative = false;
+    do {
+        _nums.push_back(l % big_integer::BASE);
+        l /= big_integer::BASE;
+    } while (l != 0);
+}
+
+big_integer::big_integer(uint64_t l) {
+    _negative = false;
+    do {
+        _nums.push_back(l % big_integer::BASE);
+        l /= big_integer::BASE;
+    } while (l != 0);
 }
